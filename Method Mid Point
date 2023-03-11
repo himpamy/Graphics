@@ -1,0 +1,219 @@
+#include<stdio.h>
+#include<winbgim.h>
+
+//A(20,30), B(120,80)
+void midpoint1(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)A+B/2;
+	printf("Mid Point 1\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (x<xb){
+		if (M<=0){
+			x++;
+			M=M+A;
+		}
+		else{
+			x++;
+			y++;
+			M=M+(A+B);
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+
+	}
+}
+
+//A(120,80), B(20,30)
+void midpoint2(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)-A-B/2;
+	printf("\n\nMid Point 2\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (x>xb){
+		if (M<=0){
+			x--;
+			M=M-A;
+		}
+		else{
+			x--;
+			y--;
+			M=M-(A+B);
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+//A(120,30), B(20,80)
+void midpoint3(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)-A+B/2;
+	printf("\n\nMid Point 3\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (x>xb){
+		if (M>=0){
+			x--;
+			M=M-A;
+		}
+		else{
+			x--;
+			y++;
+			M=M-A+B;
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+//A(20,80), B(120,30)
+void midpoint4(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)A-B/2;
+	printf("\n\nMid Point 4\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (x<xb){
+		if (M>=0){
+			x++;
+			M=M+A;
+		}
+		else{
+			x++;
+			y--;
+			M=M+A-B;
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+//A(30,20), B(80,120)
+void midpoint5(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)A/2+B;
+	printf("\n\nMid Point 5\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (y<yb){
+		if (M>=0){
+			y++;
+			M=M+B;
+		}
+		else{
+			x++;
+			y++;
+			M=M+A+B;
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+//A(80,120), B(30,20)
+void midpoint6(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)A/2+B;
+	printf("\n\nMid Point 6\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (y>yb){
+		if (M>=0){
+			y--;
+			M=M-B;
+		}
+		else{
+			x--;
+			y--;
+			M=M-A-B;
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+//A(80,20), B(30,120)
+void midpoint7(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)-A/2+B;
+	printf("\n\nMid Point 7\n");
+	printf("x=%d , y=%d\n", x, y);
+	while (y<yb){
+		if (M<=0){
+			y++;
+			M=M+B;
+		}
+		else{
+			x--;
+			y++;
+			M=M-A+B;
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+//A(30,120), B(80,20)
+void midpoint8(int xa, int ya, int xb, int yb, int color){
+	int x=xa;
+	int y=ya;
+	int A=(yb-ya);
+	int B=-(xb-xa);
+	float M=(float)A/2-B;
+	printf("\n\nMid Point 8 \n");
+	printf("x=%d , y=%d\n", x, y);
+	while (y>yb){
+		if (M<=0){
+			y--;
+			M=M-B;
+		}
+		else{
+			x++;
+			y--;
+			M=M+A-B;
+		}
+		printf("x=%d , y=%d, M=%.1f\n", x, y, M);
+		putpixel(x, y, color);
+		delay(5);
+	}
+}
+
+int main(){
+	initwindow(150,150);
+// m<1
+	midpoint1(20,30,120,80,2);
+	midpoint2(120,80,20,30,3);
+	midpoint3(120,30,20,80,4);
+	midpoint4(20,80,120,30,5);
+// m>1
+	midpoint5(30,20,80,120,6);
+	midpoint6(80,120,30,20,7);
+	midpoint7(80,20,30,120,8);
+	midpoint8(30,120,80,20,9);
+
+	getch();
+}
